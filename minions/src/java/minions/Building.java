@@ -165,8 +165,9 @@ public class Building extends Environment{
                     }
                 }
                 
-            } else if (action.equals(refuel)) {
+            } else if (action.getFunctor().equals("refuel")) {
                 model.refuel(ag);
+                System.out.println(kevinFuel);
                 if(ag.equals("kevin"))
                     kevinFuel = 50;
                 if(ag.equals("bob"))
@@ -174,8 +175,9 @@ public class Building extends Environment{
                 if(ag.equals("stuart"))
                     stuartFuel = 50;
                 
-            } else if (action.equals(restock)) {
+            } else if (action.getFunctor().equals("restock")) {
                 model.restock(ag);
+                System.out.println("kevinSupplies " + kevinSupplies);
                 if(ag.equals("kevin"))
                     kevinSupplies = 25;
                 if(ag.equals("bob"))
@@ -234,8 +236,8 @@ public class Building extends Environment{
         bobOldFuel = bobFuel;
         stuartOldFuel = stuartFuel;
 
-        Literal newFuel1 = Literal.parseLiteral("has_fuel(" + kevinOldFuel + ", kevin)");
-        Literal newFuel2 = Literal.parseLiteral("has_fuel(" + bobOldFuel + ", bob)");
+        Literal newFuel1 = Literal.parseLiteral("has_fuel(" + kevinFuel + ", kevin)");
+        Literal newFuel2 = Literal.parseLiteral("has_fuel(" + bobFuel + ", bob)");
         Literal newFuel3 = Literal.parseLiteral("has_fuel(" + stuartOldFuel + ", stuart)");
         addPercept("kevin", newFuel1);
         addPercept("bob", newFuel2);
@@ -276,10 +278,10 @@ public class Building extends Environment{
             removePercept("kevin", garbage1);
         }
         if(garbages.contains(bobLoc) && !garbageValidity.get(garbages.indexOf(bobLoc))){
-            removePercept("bob", garbage1);
+            removePercept("bob", garbage2);
         }
         if(garbages.contains(stuartLoc) && !garbageValidity.get(garbages.indexOf(stuartLoc))){
-            removePercept("stuart", garbage1);
+            removePercept("stuart", garbage3);
         }
 
         if(garbages.contains(kevinLoc) && garbageValidity.get(garbages.indexOf(kevinLoc))){

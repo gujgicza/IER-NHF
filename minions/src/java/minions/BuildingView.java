@@ -59,7 +59,7 @@ class BuildingView extends GridWorldView {
             case BuildingModel.GARB: drawGarb(g, x, y);  break;
             case BuildingModel.STATION: drawStation(g, x, y); break;
         }
-        repaint();
+        //repaint();
     }
 
 	@Override

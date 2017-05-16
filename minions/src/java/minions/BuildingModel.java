@@ -50,7 +50,7 @@ class BuildingModel extends GridWorldModel {
     }
 
     public void addGarbage(int x, int y){
-    	add(GARB, 2, 4);
+    	add(GARB, x, y);
     }
     
     public void restock(String ag) {
@@ -227,10 +227,6 @@ class BuildingModel extends GridWorldModel {
 	    	returnList.add(-1);
 	    	returnList.add(6);
     	}
-    	System.out.println(returnList.get(0));
-    	System.out.println("one");
-    	System.out.println(returnList.get(1));
-    	System.out.println("two");
     	return returnList;
 
     }
