@@ -16,11 +16,13 @@ public class Minion {
 	String name;
 	int power;
 	int supply;
+	public boolean inside;
 	
 	Minion(String name) {
 		this.name = name;
 		power = FuelInit;		
-		supply = SupplyInit;	
+		supply = SupplyInit;
+		inside = false;	
 	}
 	
 	void reducePower(int cost) throws Exception {
