@@ -143,11 +143,33 @@ class BuildingModel extends GridWorldModel {
     	int first_inside = inside(x1, y1);
     	int second_inside = inside(x2, y2);
     	ArrayList<Integer> returnList = new ArrayList<Integer>();
-    	if(first_inside == second_inside && first_inside != 0){
+    	if(first_inside == -1 && second_inside == -1){
     		returnList.add(x2 - x1);
     		returnList.add(y2 - y1);
     		returnList.add(Math.abs(x1 - x2) + Math.abs(y1 - y2));
     	} 
+    	else if(first_inside == 1 && second_inside == 1){
+    		if(x1 <= 2 && x2 <= 2){
+    			returnList.add(x2 - x1);
+	    		returnList.add(y2 - y1);
+	    		returnList.add(Math.abs(x1 - x2) + Math.abs(y1 - y2));
+    		}
+    		else if(x1 > 2 && x2 > 2){
+    			returnList.add(x2 - x1);
+	    		returnList.add(y2 - y1);
+	    		returnList.add(Math.abs(x1 - x2) + Math.abs(y1 - y2));
+    		}
+    		else if(x1 <= 2){
+    			returnList.add(1 - x1);
+		    	returnList.add(1 - y1);
+		    	returnList.add(Math.abs(x1 - 1) + Math.abs(y1 - 1));
+    		}
+    		else{
+    			returnList.add(5 - x1);
+		    	returnList.add(1 - y1);
+		    	returnList.add(Math.abs(x1 - 5) + Math.abs(y1 - 1));
+    		}
+    	}
     	else if(first_inside == 1){
     		if(second_inside == 0){
     			if(x1 <= 2 && x2 == 1){
@@ -215,8 +237,18 @@ class BuildingModel extends GridWorldModel {
 			    	returnList.add(1);
 			    	returnList.add(6);
     			} 
-    			else{
+    			else if(x1 <= 2 && x2 > 2){
 		    		returnList.add(0);
+			    	returnList.add(-1);
+			    	returnList.add(6);
+    			}
+    			else if(x1 > 2 && x2 <= 2){
+    				returnList.add(0);
+			    	returnList.add(-1);
+			    	returnList.add(6);
+    			}
+    			else{
+    				returnList.add(0);
 			    	returnList.add(1);
 			    	returnList.add(6);
     			}
