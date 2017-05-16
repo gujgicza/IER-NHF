@@ -214,12 +214,17 @@ class BuildingModel extends GridWorldModel {
     				returnList.add(0);
 			    	returnList.add(1);
 			    	returnList.add(6);
+    			} 
+    			else{
+		    		returnList.add(0);
+			    	returnList.add(1);
+			    	returnList.add(6);
     			}
     		}
     		else{
-    		returnList.add(0);
-	    	returnList.add(-1);
-	    	returnList.add(6);
+	    		returnList.add(0);
+		    	returnList.add(-1);
+		    	returnList.add(6);
     		}
     	}
     	else{
